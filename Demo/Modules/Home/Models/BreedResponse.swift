@@ -7,29 +7,31 @@
 
 import Foundation
 
- typealias BreedResponse = [Breed]
- 
+typealias BreedResponse = [Breed]
+
 // MARK: - WelcomeElement
 struct Breed: Codable {
     let weight: Weight
     let id, name: String
-    let cfaURL: String
-    let vetstreetURL: String
-    let vcahospitalsURL: String
+    let cfaURL: String?
+    let vetstreetURL: String?
+    let vcahospitalsURL: String?
     let temperament, origin, countryCodes, countryCode: String
-    let welcomeDescription, lifeSpan: String
-    let indoor, lap: Int
-    let altNames: String
+    let valueDescription, lifeSpan: String
+    let indoor: Int
+    let lap: Int?
+    let altNames: String?
     let adaptability, affectionLevel, childFriendly, dogFriendly: Int
     let energyLevel, grooming, healthIssues, intelligence: Int
     let sheddingLevel, socialNeeds, strangerFriendly, vocalisation: Int
     let experimental, hairless, natural, rare: Int
     let rex, suppressedTail, shortLegs: Int
-    let wikipediaURL: String
+    let wikipediaURL: String?
     let hypoallergenic: Int
-    let referenceImageID: String
-    let image: Image
-
+    let referenceImageID: String?
+    let image: Image?
+    let catFriendly, bidability: Int?
+    
     enum CodingKeys: String, CodingKey {
         case weight, id, name
         case cfaURL = "cfa_url"
@@ -38,7 +40,7 @@ struct Breed: Codable {
         case temperament, origin
         case countryCodes = "country_codes"
         case countryCode = "country_code"
-        case welcomeDescription = "description"
+        case valueDescription = "description"
         case lifeSpan = "life_span"
         case indoor, lap
         case altNames = "alt_names"
@@ -60,17 +62,31 @@ struct Breed: Codable {
         case hypoallergenic
         case referenceImageID = "reference_image_id"
         case image
+        case catFriendly = "cat_friendly"
+        case bidability
     }
 }
 
 // MARK: - Image
 struct Image: Codable {
-    let id: String
-    let width, height: Int
-    let url: String
+    let id: String?
+    let width, height: Int?
+    let url: String?
 }
 
 // MARK: - Weight
 struct Weight: Codable {
     let imperial, metric: String
+}
+
+
+extension BreedResponse {
+    func transformToViewModel() -> BreedsList {
+        var temporalArray:BreedsList = []
+        self.forEach { breed in
+            let newBreed = BreedViewModel(id: breed.id , name: breed.name, urlImage: breed.image?.url ?? "", image: nil, description: breed.valueDescription, origin: breed.origin , temperament: breed.temperament, isFavorite: false)
+            temporalArray.append(newBreed)
+        }
+        return temporalArray
+    }
 }

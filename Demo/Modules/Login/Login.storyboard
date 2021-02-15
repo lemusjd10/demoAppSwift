@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g86-K5-TXV">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="jG7-GF-f5R">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="g86-K5-TXV" customClass="LoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7tP-wl-K9N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a8B-SW-DWm">
+                                <rect key="frame" x="40" y="208.5" width="295" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vGy-td-JMq">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="M9n-NY-ejp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-Ca-Fef">
+                                        <rect key="frame" x="0.0" y="100" width="295" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cOR-U7-lv1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eON-87-0CG">
+                                        <rect key="frame" x="0.0" y="150" width="295" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UgC-4C-XSa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFe-gP-n4M">
+                                        <rect key="frame" x="0.0" y="200" width="295" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Xu6-d9-8CE"/>
+                                        </constraints>
+                                        <state key="normal" title="Ingresar"/>
+                                        <connections>
+                                            <action selector="didTapOnLogin:" destination="g86-K5-TXV" eventType="touchUpInside" id="ema-DE-US1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iGc-YG-yvN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a8B-SW-DWm" firstAttribute="centerX" secondItem="7tP-wl-K9N" secondAttribute="centerX" id="40r-Yq-MGV"/>
+                            <constraint firstItem="a8B-SW-DWm" firstAttribute="centerY" secondItem="7tP-wl-K9N" secondAttribute="centerY" id="4RE-XR-b5g"/>
+                            <constraint firstItem="iGc-YG-yvN" firstAttribute="trailing" secondItem="a8B-SW-DWm" secondAttribute="trailing" constant="40" id="KDW-Sc-pa4"/>
+                            <constraint firstItem="a8B-SW-DWm" firstAttribute="leading" secondItem="iGc-YG-yvN" secondAttribute="leading" constant="40" id="tyL-w5-GHN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextfield" destination="eON-87-0CG" id="3j3-yf-3bp"/>
+                        <outlet property="userTextField" destination="wDA-Ca-Fef" id="Sak-Di-PWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Or-bb-ORW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-93.599999999999994" y="11.244377811094454"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="catLogo" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

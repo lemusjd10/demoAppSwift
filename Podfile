@@ -7,7 +7,10 @@ target 'Demo' do
 
   # Pods for Demo
   pod 'IQKeyboardManagerSwift'
-	
+  pod 'Firebase/Auth' 
+  pod 'lottie-ios'
+  pod 'UIScrollView-InfiniteScroll'	
+
   target 'DemoTests' do
     inherit! :search_paths
     # Pods for testing

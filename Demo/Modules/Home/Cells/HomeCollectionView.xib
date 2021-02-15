@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeCollectionView" customModule="Demo" customModuleProvider="target">
+            <connections>
+                <outlet property="breedImage" destination="aro-Yb-KYL" id="yW1-Zn-IAm"/>
+                <outlet property="favoriteButton" destination="L63-yy-H9U" id="qwF-mf-Csu"/>
+                <outlet property="titleBreedLabel" destination="aVD-Nd-nwR" id="Bc7-2z-F5W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="136" height="173"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aVD-Nd-nwR">
+                    <rect key="frame" x="8" y="126.5" width="93" height="37.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aro-Yb-KYL">
+                    <rect key="frame" x="0.0" y="0.0" width="136" height="120.5"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="136" id="8Eu-ET-ikt"/>
+                        <constraint firstAttribute="height" constant="120.5" id="yj8-rr-eXC"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L63-yy-H9U">
+                    <rect key="frame" x="103" y="133.5" width="28" height="23.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="fiE-Bi-GtU"/>
+                        <constraint firstAttribute="width" constant="28" id="sWS-a1-71z"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemPinkColor"/>
+                    <state key="normal">
+                        <imageReference key="backgroundImage" image="heart" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapOnFavorite:" destination="-1" eventType="touchUpInside" id="nfQ-8Q-CaD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="L63-yy-H9U" secondAttribute="bottom" priority="999" constant="17" id="0km-3r-1b5"/>
+                <constraint firstAttribute="bottom" secondItem="aVD-Nd-nwR" secondAttribute="bottom" constant="9" id="94x-kH-MrB"/>
+                <constraint firstAttribute="trailing" secondItem="aro-Yb-KYL" secondAttribute="trailing" id="HAS-8H-c13"/>
+                <constraint firstItem="aVD-Nd-nwR" firstAttribute="top" secondItem="aro-Yb-KYL" secondAttribute="bottom" constant="6" id="Js8-zf-8VB"/>
+                <constraint firstAttribute="trailing" secondItem="L63-yy-H9U" secondAttribute="trailing" constant="5" id="K17-L2-RTk"/>
+                <constraint firstItem="aro-Yb-KYL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K70-Oc-ZOC"/>
+                <constraint firstItem="aVD-Nd-nwR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="MkF-yI-xGi"/>
+                <constraint firstAttribute="trailing" secondItem="aVD-Nd-nwR" secondAttribute="trailing" constant="35" id="dEv-zJ-7hN"/>
+                <constraint firstItem="L63-yy-H9U" firstAttribute="top" secondItem="aro-Yb-KYL" secondAttribute="bottom" constant="13.5" id="fOa-fU-ro9"/>
+                <constraint firstItem="aro-Yb-KYL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rQb-XN-jg7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-51.200000000000003" y="211.84407796101951"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
