@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         }
     }
     var breedsList: BreedsList = []
+    var breedSelected: BreedViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = collectionView.frame.size.width / 3
         return CGSize(width: screenWidth, height: screenWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = breedsList[indexPath.row]
+        breedSelected = item
+        self.performSegue(withIdentifier: "segueHomeDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? DetailViewController {
+            controller.itemViewModel = breedSelected
+        }
     }
 }
  

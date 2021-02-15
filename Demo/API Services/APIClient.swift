@@ -80,19 +80,43 @@ class APIClient {
             
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else { return }
-                completion(json, nil)
-                //print("json:", json)
-                //do {
-                //    let genericType = try JSONDecoder().decode(someClass.self, from: data)
-                //    completion(genericType, nil)
-                //} catch {
-                //    completion(nil, .jsonParsinFail)
-                //}
+                completion(json, nil) 
             }catch {
                 completion(nil, .requestFailed)
             }
         }
 
+        task.resume()
+    }
+    
+    func postRequestQuery<T: Decodable>(parameters: ContactBaseRequest, url: String, someClass: T.Type, completion: @escaping ([String:AnyObject]?, ErrorHandler?) -> Void) {
+         
+        var components = URLComponents(string: url)!
+        var request = URLRequest(url: components.url!)
+        request.setValue("application/hal+json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "post"
+        
+        components.queryItems = [
+            URLQueryItem(name: "type", value: "" ),
+            URLQueryItem(name: "field_nombre_completo", value: ""),
+            URLQueryItem(name: "field_fecha_de_nacimiento", value: ""),
+            URLQueryItem(name: "field_correo_electronico", value: ""),
+            URLQueryItem(name: "field_mensaje", value: "")
+        ]
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                  let response = response as? HTTPURLResponse,
+                  (200 ..< 300) ~= response.statusCode,
+                  error == nil else {
+                completion(nil, .invalidData)
+                return
+            }
+            
+            let responseObject = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+            
+            debugPrint(" response JSON \( String(describing: responseObject))")
+        }
         task.resume()
     }
 }

@@ -25,7 +25,7 @@ class ContactViewModel {
     }
     
     func sendContact(name: String?, date: String?, email: String?, subject: String? ){
-        guard let names = date, !names.isEmpty, let dates = date, !dates.isEmpty,
+        guard let names = name, !names.isEmpty, let dates = date, !dates.isEmpty,
               let emails = email, !emails.isEmpty, let message = subject, !message.isEmpty else {
             delegate?.didFailRetriveSendContact(.errorFieldsContact)
             return
